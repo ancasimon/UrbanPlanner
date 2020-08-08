@@ -40,6 +40,7 @@ namespace UrbanPlanner  //ANCA: Note: Initially, I had Building as a folder name
         public void Purchase(string owner)
         {
             _owner = owner;
+            Console.WriteLine($"{_name} was purchased by {_owner}!");
         }
 
         public void Describe()

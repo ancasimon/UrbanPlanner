@@ -20,12 +20,13 @@ namespace UrbanPlanner
 
 
         //methods:
-        public string ListBuildings() => string.Join(", ", CityBuildings);
-        public void AddBuilding(object newBuilding)
-        {
-            CityBuildings.Add(newBuilding);
-            Console.WriteLine($"Updated list of Nashville buildings includes: {ListBuildings()}.");
-        }
+        //public string ListBuildings() => string.Join(", ", CityBuildings);
+        public List<object> ListBuildings() => CityBuildings;
+        //public void AddBuilding(object newBuilding)
+        //{
+        //    CityBuildings?.Add(newBuilding);
+        //    Console.WriteLine($"Updated list of Nashville buildings includes: {CityBuildings}.");
+        //}
 
 
 

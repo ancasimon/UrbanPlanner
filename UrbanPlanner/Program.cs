@@ -8,7 +8,7 @@ namespace UrbanPlanner
         static void Main(string[] args)
         {
             //create buildings:
-            var building123 = new Building("123 Linden Ave", "Building123") //ANCA: why start with the class name rather than var?????(in the example in the exercise!)
+            var building123 = new Building("123 Linden Ave", "Building123") 
             {
                 Width = 200,
                 Depth = 200,
@@ -40,32 +40,42 @@ namespace UrbanPlanner
             building456.Purchase("Jim Cooper");
             building789.Purchase("Nashville Symphony");
 
-            building123.Describe();
-
 
             //creating a new city instance:
             var mainCity = new City();
             Console.WriteLine($"{mainCity._name} was established in {mainCity._charteredYear} and is currently led by Mayor {mainCity.Mayor}.");
 
-            var buildingCollection = new List<object> { building123, building456, building789 };
+            var buildingCollection = new List<Building>();  //ANCA: Is it ok if my collection is in here or does it need to be in the City.cs file??
 
-            mainCity.CityBuildings = buildingCollection;
+            buildingCollection.Add(building123);
+            buildingCollection.Add(building456);
+            buildingCollection.Add(building789);
+
+            Console.WriteLine($"{mainCity._name} includes the following buildings:");
+            foreach (var building in buildingCollection)
+            {
+                building.Describe();
+            }
+
+            //var buildingCollection = new List<object> { building123, building456, building789 };
+
+            //mainCity.CityBuildings = buildingCollection;
 
             //initial code adding my 3 buildings to the collection of Nashville buildings:
-            //mainCity.AddBuilding(Building123);
-            //mainCity.AddBuilding(Building456);
-            //mainCity.AddBuilding(Building789);
+            //mainCity.AddBuilding(building123);
+            //mainCity.AddBuilding(building456);
+            //mainCity.AddBuilding(building789);
 
-            Console.WriteLine($"{mainCity.ListBuildings()}");
-            Console.WriteLine($"{mainCity._name} has the following buildings: {mainCity.ListBuildings()}");
+            //Console.WriteLine($"{mainCity.ListBuildings()}");
+            //Console.WriteLine($"{mainCity._name} has the following buildings: {mainCity.ListBuildings()}");
 
-            int count = 0;
+            //int count = 0;
 
-            foreach (var item in mainCity.CityBuildings)
-            {
-                Console.WriteLine($"{item}");
-                count++;
-            }
+            //foreach (var item in mainCity.CityBuildings)
+            //{
+            //    Console.WriteLine($"{item}");
+            //    count++;
+            //}
 
 
         }
